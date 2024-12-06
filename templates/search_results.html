@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Search Results</h2>
+<div class="row">
+    {% if articles.empty %}
+    <p class="text-danger">No results found for your query. Try a different keyword.</p>
+    {% else %}
+    {% for _, row in articles.iterrows() %}
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ row['title'] }}</h5>
+                <p class="card-text text-muted">{{ row['published'] }}</p>
+                <a href="{{ row['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

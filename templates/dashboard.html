@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center text-success">{{ username }}'s Dashboard</h1>
+
+<div class="row">
+    <h2>Trending Stories</h2>
+    {% for story in trending_stories %}
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ story['title'] }}</h5>
+                <p class="card-text text-muted">{{ story['published'] }}</p>
+                <a href="{{ story['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if no_recommendations %}
+    <div class="alert alert-info text-center">
+        <strong>No recommendations at the moment.</strong>
+    </div>
+{% else %}
+    <div class="row">
+        <h2>Recommended Articles for You</h2>
+        
+        <!-- Collaborative recommendations -->
+        {% if collaborative_articles %}
+            <h3>Collaborative Recommendations</h3>
+            {% for article in collaborative_articles %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article['title'] }}</h5>
+                        <p class="card-text text-muted">{{ article['published'] }}</p>
+                        <a href="{{ article['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Content-based recommendations -->
+        {% if content_articles %}
+            <h3>Content-based Recommendations</h3>
+            {% for article in content_articles %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article['title'] }}</h5>
+                        <p class="card-text text-muted">{{ article['published'] }}</p>
+                        <a href="{{ article['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Contextual recommendations -->
+        {% if contextual_articles %}
+            <h3>Contextual Recommendations</h3>
+            {% for article in contextual_articles %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article['title'] }}</h5>
+                        <p class="card-text text-muted">{{ article['published'] }}</p>
+                        <a href="{{ article['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+h1, h2 {
+    font-family: 'Arial Black', sans-serif;
+    color: #155724;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #155724;
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search Articles</h1>
+
+<form method="POST">
+    <input type="text" name="query" placeholder="Search for articles..." required>
+    <button type="submit">Search</button>
+</form>
+
+<!-- Check if there are any search results -->
+{% if articles is not none %}
+    <ul>
+        {% for index, article in articles.iterrows() %}
+            <li>{{ article['title'] }} - <a href="{{ article['link'] }}">Read more</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No articles found matching your query.</p>
+{% endif %}
+
+{% endblock %}

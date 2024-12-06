@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center text-success">Trending Stories</h1>
+<div class="row">
+    {% for story in trending_stories %}
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ story['title'] }}</h5>
+                <p class="card-text text-muted">{{ story['published'] }}</p>
+                <a href="{{ story['link'] }}" class="btn btn-success" target="_blank">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
