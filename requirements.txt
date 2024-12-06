@@ -25,5 +25,3 @@ streamlit==1.40.2
 tenacity==9.0.0
 textblob==0.18.0.post0
 
-en_core_web_sm==3.8.0
-
