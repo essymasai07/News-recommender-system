@@ -14,8 +14,7 @@ certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7
 cloudpathlib==0.20.0
-comm==0.2.2  
-...
+comm==0.2.2
 
 spacy==3.8.2
 spacy-legacy==3.0.12
@@ -25,6 +24,6 @@ srsly==2.4.8
 streamlit==1.40.2
 tenacity==9.0.0
 textblob==0.18.0.post0
-...
 
-en_core_web_sm==3.8.0 
+en_core_web_sm==3.8.0
+
